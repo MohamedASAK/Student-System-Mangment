@@ -1,0 +1,29 @@
+<div class="container col-md-9 col-sm-6 mt-5">
+  <h1 class="text-center text-info">List Student</h1>
+  <div class="card">
+    <div class="card-body">
+      <div class="alert alert-danger" *ngIf="massage.length > 1">
+        {{massage}}
+      </div>
+      <table class="table bg-secondary">
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Gender</th>
+          <th>Level</th>
+          <th>GPA</th>
+          <th colspan="2">Action</th>
+        </tr>
+        <tr class="bg-secondary" *ngFor="let items of allData">
+          <th>{{items.id}}</th>
+          <th>{{items.name}}</th>
+          <th>{{items.gender}}</th>
+          <th>{{items.level}}</th>
+          <th>{{items.gpa}}</th>
+          <th><button (click)="deleteItem(items.id)" class="btn btn-danger bg-danger" style="color: white;">Delete</button></th>
+          <th><a routerLink="/update/{{items.id}}" class="btn btn-warning bg-warning" style="color: white;">Update</a></th>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>

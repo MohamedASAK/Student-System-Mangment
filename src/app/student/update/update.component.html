@@ -1,0 +1,62 @@
+<div class="container col-md-6 mt-5">
+  <div class="alert alert-warning" *ngIf="massage.length > 1">
+    {{massage}}
+  </div>
+  <div class="card">
+    <div class="card-body">
+      <h2 class="text-center text-warning">Update Student</h2>
+      <div class="form-group">
+        <label> Student Name </label>
+        <input [(ngModel)]="Student.name" type="text" placeholder="Enter Student Name" class="form-control"
+        #name="ngModel" ngModel required minlength="3"maxlength="20"
+        [ngClass]="{
+          'invalid':name.invalid && name.touched,
+          'valid':name.valid && name.touched
+        }">
+          <div *ngIf="name.invalid && name.touched">
+            <div *ngIf="name.errors?.['required']">You must enter student name</div>
+            <div *ngIf="name.errors?.['minlength']">You must enter student name greater than or equal 3 character</div>
+            <div *ngIf="name.errors?.['maxlength']">You must enter less than or equal 20 character</div>
+          </div>
+        </div>
+      <div class="form-group">
+        <label> Student Level </label>
+        <input [(ngModel)]="Student.level"type="text" placeholder="Enter Student Level" class="form-control"
+        #level="ngModel" ngModel required minlength="1"maxlength="2"
+        [ngClass]="{
+          'invalid':level.invalid && level.touched,
+          'valid':level.valid && level.touched
+        }">
+        <div *ngIf="level.invalid && level.touched">
+          <div *ngIf="level.errors?.['required']">You must enter student level</div>
+          <div *ngIf="level.errors?.['minlength']">You must enter student level greater than or equal 1 character</div>
+          <div *ngIf="level.errors?.['maxlength']">You must enter less than or equal 2 character</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label> Student GPA </label>
+        <input [(ngModel)]="Student.gpa"type="text" placeholder="Enter Student GPA" class="form-control"
+        #GPA="ngModel" ngModel required minlength="1"maxlength="3"
+        [ngClass]="{
+          'invalid':GPA.invalid && GPA.touched,
+          'valid':GPA.valid && GPA.touched
+        }">
+        <div *ngIf="GPA.invalid && GPA.touched">
+          <div *ngIf="GPA.errors?.['required']">You must enter student GPA</div>
+          <div *ngIf="GPA.errors?.['minlength']">You must enter student GPA greater than or equal 3 character</div>
+          <div *ngIf="GPA.errors?.['maxlength']">You must enter less than or equal 3 character</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label> Student Gender</label>
+        <br>
+        <input [(ngModel)]="Student.gender" value = "Male" type="radio" name="gender"> Male
+        <br>
+        <input [(ngModel)]="Student.gender" value = "Female" type="radio" name="gender"> Female
+      </div>
+      <div class="form-group text-center d-grid">
+        <button class="btn btn-warning" (click)="updateStudent()">Update Student</button>
+      </div>
+    </div>
+  </div>
+</div>

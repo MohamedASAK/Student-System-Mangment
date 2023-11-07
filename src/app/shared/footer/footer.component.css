@@ -1,0 +1,12 @@
+.container h3 a{
+  text-decoration: none;
+  color: whitesmoke;
+}
+.container h3 a:hover{
+  color: wheat;
+}
+@media(max-width:425px){
+  .container h3 a{
+    font-size: 20px;
+  }
+}
